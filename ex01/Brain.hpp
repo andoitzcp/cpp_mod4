@@ -8,7 +8,7 @@ class Brain
         Brain(void);
         Brain(std::string& type);
         Brain(const Brain& other);
-        Brain operator=(const Brain& other);
+        Brain& operator=(const Brain& other);
         ~Brain(void);
 
         std::string getIdea(int index) const;

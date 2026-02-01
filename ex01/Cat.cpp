@@ -18,20 +18,21 @@ Cat::Cat(const Cat& other): Animal(other)
     return ;
 }
 
-Cat Cat::operator=(const Cat& other)
+Cat& Cat::operator=(const Cat& other)
 {
+    if (this != &other)
+    {
+        Animal::operator=(other);
+        *(this->_brain) = *(other._brain);
+    }
     std::cout << "Assigment Cat operator called" << std::endl;
-    if (this == &other)
-        return other;
-    this->_type = other._type;
-    this->_brain = new Brain(*(other._brain));
     return *this;
 }
 
 Cat::~Cat(void)
 {
-    std::cout << "Cat destructor called" << std::endl;
     delete this->_brain;
+    std::cout << "Cat destructor called" << std::endl;
     return ;
 }
 

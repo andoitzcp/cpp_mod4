@@ -14,12 +14,11 @@ Animal::Animal(const Animal &other): _type(other._type)
     return ;
 }
 
-Animal Animal::operator=(const Animal &other)
+Animal& Animal::operator=(const Animal &other)
 {
+    if (this != &other)
+        this->_type = other._type;
     std::cout << "Assigment Animal operator called" << std::endl;
-    if (this == &other)
-        return other;
-    this->_type = other._type;
     return *this;
 }
 

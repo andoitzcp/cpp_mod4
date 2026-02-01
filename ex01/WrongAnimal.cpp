@@ -14,12 +14,11 @@ WrongAnimal::WrongAnimal(const WrongAnimal &other): _type(other._type)
     return ;
 }
 
-WrongAnimal WrongAnimal::operator=(const WrongAnimal &other)
+WrongAnimal& WrongAnimal::operator=(const WrongAnimal &other)
 {
+    if (this != &other)
+        this->_type = other._type;
     std::cout << "Assigment WrongAnimal operator called" << std::endl;
-    if (this == &other)
-        return other;
-    this->_type = other._type;
     return *this;
 }
 
