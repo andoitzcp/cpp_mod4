@@ -17,20 +17,21 @@ Dog::Dog(const Dog& other): Animal(other)
     return ;
 }
 
-Dog Dog::operator=(const Dog& other)
+Dog& Dog::operator=(const Dog& other)
 {
+    if (this != &other)
+    {
+        Animal::operator=(other);
+        *(this->_brain) = *(other._brain);
+    }
     std::cout << "Assigment Dog operator called" << std::endl;
-    if (this == &other)
-        return other;
-    this->_type = other._type;
-    this->_brain = new Brain(*(other._brain));
     return *this;
 }
 
 Dog::~Dog(void)
 {
-    std::cout << "Dog destructor called" << std::endl;
     delete this->_brain;
+    std::cout << "Dog destructor called" << std::endl;
     return ;
 }
 
@@ -48,7 +49,7 @@ Brain* Dog::getBrain(void) const
 std::ostream &operator<<(std::ostream &os, const Dog& dog)
 {
 
-    std::cout << "Cat brain contents:\n";
+    std::cout << "Dog brain contents:\n";
     for (int i = 0; i < 100; i++)
     {
         os << dog.getBrain()->getIdea(i) << "\n";

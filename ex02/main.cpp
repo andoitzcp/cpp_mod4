@@ -5,6 +5,10 @@
 
 int main(void)
 {
+    // This produces a compile error
+    //{
+    //    Animal test;
+    //}
     {
         std::cout << "== TEST ANIMAL ARRAY ==\n" << std:: endl;
         Animal* animal[10];
@@ -41,6 +45,17 @@ int main(void)
             Dog tmp(dog);
         }
         std::cout << dog;
+    }
+    {
+        std::cout << "\n== TEST LEAK==\n" << std:: endl;
+        // if it is not a deep copy the destructor in cat class should delete
+        // the Brain * attribute.
+        Cat cat;
+        Cat c;
+        std::cout << "\nFLAG: constructor copy\n" << std::endl;
+        Cat b = cat;
+        std::cout << "\nFLAG: operador asignacion\n" << std::endl;
+        c = cat;
     }
 
     return 0;

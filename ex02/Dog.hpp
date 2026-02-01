@@ -9,7 +9,7 @@ class Dog: public Animal
     public:
         Dog(void);
         Dog(const Dog &other);
-        Dog operator=(const Dog &other);
+        Dog& operator=(const Dog &other);
         ~Dog(void);
 
         void makeSound(void) const;
@@ -17,6 +17,7 @@ class Dog: public Animal
     
     private:
         Brain* _brain;
+
 };
 
 std::ostream &operator<<(std::ostream &os, const Dog& dog);

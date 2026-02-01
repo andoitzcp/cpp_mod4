@@ -15,12 +15,11 @@ WrongCat::WrongCat(const WrongCat& other): WrongAnimal(other)
     return ;
 }
 
-WrongCat WrongCat::operator=(const WrongCat& other)
+WrongCat& WrongCat::operator=(const WrongCat& other)
 {
+    if (this != &other)
+        WrongAnimal::operator=(other);
     std::cout << "Assigment WrongCat operator called" << std::endl;
-    if (this == &other)
-        return other;
-    this->_type = other._type;
     return *this;
 }
 

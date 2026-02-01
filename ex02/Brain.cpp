@@ -27,14 +27,15 @@ Brain::Brain(const Brain& other)
     return ;
 }
 
-Brain Brain::operator=(const Brain& other)
+Brain& Brain::operator=(const Brain& other)
 {
+    if (this != &other)
+    {
+        for (int i = 0; i < 100; i++)
+            this->_ideas[i] = other._ideas[i];
+        this->_type = other._type;
+    }
     std::cout << "Assigment " << this->_type << " Brain operator called" << std::endl;
-    if (this == &other)
-        return (other);
-    for (int i = 0; i < 100; i++)
-        this->_ideas[i] = other._ideas[i];
-    this->_type = other._type;
     return *this;
 }
 
