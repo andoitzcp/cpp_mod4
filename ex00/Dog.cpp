@@ -15,12 +15,11 @@ Dog::Dog(const Dog& other): Animal(other)
     return ;
 }
 
-Dog Dog::operator=(const Dog& other)
+Dog& Dog::operator=(const Dog& other)
 {
+    if (this != &other)
+        Animal::operator=(other);
     std::cout << "Assigment Dog operator called" << std::endl;
-    if (this == &other)
-        return other;
-    this->_type = other._type;
     return *this;
 }
 

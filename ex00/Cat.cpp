@@ -15,12 +15,11 @@ Cat::Cat(const Cat& other): Animal(other)
     return ;
 }
 
-Cat Cat::operator=(const Cat& other)
+Cat& Cat::operator=(const Cat& other)
 {
+    if (this != &other)
+        Animal::operator=(other);
     std::cout << "Assigment Cat operator called" << std::endl;
-    if (this == &other)
-        return other;
-    this->_type = other._type;
     return *this;
 }
 
