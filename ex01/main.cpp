@@ -6,6 +6,9 @@
 int main(void)
 {
     {
+        Animal test;
+    }
+    {
         std::cout << "== TEST ANIMAL ARRAY ==\n" << std:: endl;
         Animal* animal[10];
         for (int i = 0; i < 10; i++)
